@@ -1,0 +1,145 @@
+/* 全体的なスタイル */
+body {
+    background-color: #0b1a2e; /* 暗い宇宙船内のような背景色 */
+    color: #e0e6ec; /* 明るめの文字色 */
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden; /* コンテンツが画面からはみ出さないように */
+}
+
+/* 背景動画のスタイル */
+#bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1; /* 最背面に配置 */
+}
+
+/* タイトルのスタイル */
+h1 {
+    font-size: 3em;
+    color: #e0e6ec;
+    text-shadow: 2px 2px 5px #000;
+}
+
+/* ボタンのスタイル */
+button {
+    background-color: #2979ff; /* 青色のボタン */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    z-index: 10;
+    margin: 5px; /* ボタン間の余白を追加 */
+}
+
+button:hover {
+    background-color: #1c59c5; /* ホバーで少し暗く */
+}
+
+button:disabled {
+    background-color: #4a5468; /* 無効化されたボタンの色 */
+    cursor: not-allowed;
+}
+
+/* メッセージ表示エリアのスタイル */
+#message {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: rgba(28, 43, 70, 0.8); /* 透明度のある暗めの背景 */
+    border-radius: 10px;
+    font-size: 1.5em;
+    font-weight: bold;
+    min-width: 300px;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    border: 2px solid #5a6b8a;
+    transition: transform 0.2s ease-in-out;
+    z-index: 10;
+}
+
+/* 認識結果が「口約束ライブ9/28」のときのスタイル */
+#message:not(:empty) {
+    animation: pulse 1s infinite alternate; /* 脈動するアニメーション */
+}
+
+/* 動画コンテナのスタイル */
+#video-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+    width: 80%;
+    max-width: 800px;
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+    transition: opacity 0.5s ease;
+}
+#video-container.hidden {
+    display: none;
+    opacity: 0;
+}
+
+/* ポップアップ動画のスタイル */
+#kuchiyakusoku-video {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* テキスト入力コンテナのスタイル */
+#text-input-container {
+    margin: 20px;
+    z-index: 10;
+    display: flex; /* 入力欄とボタンを横並びにする */
+    align-items: center;
+}
+
+/* テキスト入力欄のスタイル */
+#textInput {
+    padding: 10px;
+    font-size: 1em;
+    border-radius: 5px;
+    border: 2px solid #5a6b8a;
+    background-color: #1c2b46;
+    color: #e0e6ec;
+    width: 250px;
+}
+
+/* 送信ボタンのスタイル */
+#textSubmit {
+    padding: 10px 20px;
+    margin-left: 10px;
+}
+
+/* アニメーションの定義 */
+@keyframes pulse {
+    from {
+        transform: scale(1);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    }
+    to {
+        transform: scale(1.05);
+        box-shadow: 0 8px 20px rgba(255, 0, 0, 0.7);
+    }
+}
